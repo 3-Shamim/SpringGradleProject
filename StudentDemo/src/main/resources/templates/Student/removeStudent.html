@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 th:text="${title}"></h1>
+            <nav th:replace="fragments :: navigation"></nav>
+        </div>
+
+        <form action="" method="post">
+            <table class="table">
+                <tr>
+                    <th>Check</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                </tr>
+                <tr th:each="list : ${studentList}">
+                    <td><input type="checkbox" name="studentCheckedId" th:value="${list.Id}"/></td>
+                    <td th:text="${list.studentId}"></td>
+                    <td th:text="${list.Name}"></td>
+                    <td th:text="${list.Email}"></td>
+                    <td th:text="${list.depertmentDetails.DeptName}"></td>
+                </tr>
+            </table>
+            <input class="btn btn-danger" type="submit" value="Remove Student"/>
+        </form>
+    </div>
+</body>
+</html>

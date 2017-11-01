@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" ></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 th:text="${title}"></h1>
+            <nav th:replace="fragments :: navigation"></nav>
+        </div>
+
+        <div class="addDepertment">
+            <form method="post" class="deptForm" th:object="${depertmentDetails}">
+                <div class="form-group">
+                    <label th:for="DeptName">Department Name</label>
+                    <input class="form-control" th:field="*{DeptName}"/>
+                    <span class="errorField" th:errors="*{DeptName}"></span>
+                </div>
+                <input class="btn btn-success" type="submit" value="Add Department" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

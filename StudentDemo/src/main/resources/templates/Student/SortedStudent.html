@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 th:text="${title}"></h1>
+            <nav th:replace="fragments :: navigation"></nav>
+        </div>
+
+        <div class="studentTable">
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                </tr>
+                <tr th:each="list : ${studentList}">
+                    <td><a th:href="@{/Student/viewCourseForStudent(studentKeyId=${list.Id})}" th:text="${list.studentId}"></a></td>
+                    <td th:text="${list.Name}"></td>
+                    <td th:text="${list.Email}"></td>
+                    <td th:text="${list.depertmentDetails.DeptName}"></td>
+                </tr>
+            </table>
+            <a class="btn btn-success" href="/Student/addStudent">Add Student</a>
+            <a class="btn btn-danger" href="/Student/removeSortedStudent">Remove Student</a>
+        </div>
+    </div>
+</body>
+</html>

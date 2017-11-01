@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Student</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar" th:fragment="navigation">
+        <ul>
+            <li><a href="/Student">Student Table</a></li>
+            <li><a href="/Depertment">Department</a></li>
+            <li><a href="/Course">Course</a></li>
+        </ul>
+    </nav>
+
+
+</body>
+</html>

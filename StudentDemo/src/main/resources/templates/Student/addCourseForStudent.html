@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" ></head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 th:text="${title}"></h1>
+        <nav th:replace="fragments :: navigation"></nav>
+    </div>
+
+    <div class="addCourseForStudentFull">
+        <div class="addCourseForStudent">
+            <form method="post" class="addCourseForStudentForm">
+                <div class="form-group">
+                    <input type="hidden" name="studentKeyId" th:value="${studentKeyId}" />
+                    <label th:for="courseKeyId">Select Course</label>
+                    <select class="form-control" name="courseKeyId" >
+                        <option th:each="courseList : ${courseList}" th:value="${courseList.Id}" th:text="${courseList.courseCode}"></option>
+                    </select>
+                    <span class="errorField" th:text="${errors}"></span>
+                </div>
+                <input class="btn btn-success" type="submit" value="Add Course" />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

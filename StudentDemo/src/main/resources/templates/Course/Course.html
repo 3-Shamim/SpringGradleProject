@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 th:text="${title}"></h1>
+            <nav th:replace="fragments :: navigation"></nav>
+        </div>
+        <div class="courseTable">
+            <table class="table table-striped">
+                <tr>
+                    <th>Course Code</th>
+                    <th>CourseTitle</th>
+                    <th>Course Credit</th>
+                </tr>
+                <tr th:each="list : ${List}">
+                    <td th:text="${list.courseCode}"></td>
+                    <td th:text="${list.courseTitle}"></td>
+                    <td th:text="${list.courseCredit}"></td>
+                </tr>
+            </table>
+            <a class="btn btn-success" href="/Course/addCourse">Add Course</a>
+            <a class="btn btn-danger" href="/Student/removeStudent">Remove Student</a>
+        </div>
+    </div>
+</body>
+</html>

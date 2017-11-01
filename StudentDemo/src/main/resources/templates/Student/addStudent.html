@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 th:text="${title}"></h1>
+            <nav th:replace="fragments :: navigation"></nav>
+        </div>
+
+        <div class="addStudents">
+            <form method="post" class="cheeseForm" th:object="${studentDetails}">
+                <div class="form-group">
+                    <label th:for="studentId">Id</label>
+                    <input class="form-control" th:field="*{studentId}"/>
+                    <span class="errorField" th:errors="*{studentId}"></span>
+                </div>
+                <div class="form-group">
+                    <label th:for="Name">Name</label>
+                    <input class="form-control" th:field="*{Name}" />
+                    <span class="errorField" th:errors="*{Name}"></span>
+                </div>
+                <div class="form-group">
+                    <label th:for="Email">Email</label>
+                    <input class="form-control" th:field="*{Email}" />
+                    <span class="errorField" th:errors="*{Email}"></span>
+                </div>
+                <div class="form-group">
+                    <label th:for="depertmentDetails">Department</label>
+                    <select class="form-control selectpicker" th:field="*{depertmentDetails}">
+                        <option th:each="deptList : ${deptList}" th:text="${deptList.DeptName}" th:value="${deptList.Id}"></option>
+                    </select>
+                </div>
+                <input class="btn btn-success" type="submit" value="Add Student" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>
