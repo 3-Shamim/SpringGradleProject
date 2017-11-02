@@ -34,7 +34,7 @@ body{
 .navbar ul li a{
   display: inline-block;
   text-decoration: none;
-  color: #2880d7;;
+  color: #2880d7;
   padding: 0 20px 0 0;
   margin: 0 5px;
   position: relative;
@@ -83,6 +83,12 @@ body{
     margin-top: 20px;
 }
 
+.viewCourseForStudentFull{
+    margin-top: 20px;
+    overflow: hidden;
+    background-color: #ecf0f1;
+    padding: 20px;
+}
 .addCourseForStudent{
     display: block;
     overflow: hidden;
@@ -107,34 +113,21 @@ body{
     padding: 30px;
     background-color: #ecf0f1;
 }
-.depertmentList ul{
-    list-style: none;
+.depertmentList ol{
     margin: 0;
     padding: 0;
-    margin: 10px 0;
+    margin: 20px 20px;
 }
-.depertmentList ul li{
+.depertmentList ol li{
 
 }
-.depertmentList ul li a{
-    background-color: #02CCFF;
-    padding: 10px;
-    display: inline-block;
-    margin: 10px 0;
-    min-width: 200px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 400;
+.depertmentList ol li a{
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #2880d7;
     text-decoration: none;
-    border-bottom: 6px solid transparent;
-    border-radius: 4px;
-    transition: 1s;
 }
-.depertmentList ul li a:hover{
-    border-bottom: 6px solid #2450e7;
-    transition: 1s;
+.depertmentList ol li a:hover{
+    color: #07bfd5;
 }
 
 

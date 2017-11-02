@@ -8,7 +8,10 @@
         <nav th:replace="fragments :: navigation"></nav>
     </div>
 
-    <div class="addCourseForStudentFull">
+    <div class="viewCourseForStudentFull">
+        <div class="CreditBox">
+            <h4 th:text="${totalCredit}"></h4>
+        </div>
         <div class="courseTableForSingleStudent">
             <table class="table table-striped">
                 <tr>

@@ -29,6 +29,7 @@ public class StudentController {
     private String sutdentId;
     private String sutdentName;
     private int sutdentkeyId;
+    private int totalCredit = 0;
 
     @Autowired
     private StudentDao studentDao;
@@ -149,19 +150,36 @@ public class StudentController {
                                                   @RequestParam("courseKeyId") int courseKeyId, Model model) {
         CourseDetails courseDetails = courseDao.findOne(courseKeyId);
         StudentDetails studentDetails = studentDao.findOne(studentKeyId);
+
+        getCredit();
+        totalCredit += courseDetails.getCourseCredit();
+
         for (CourseDetails c: sortedCouserList) {
-            if(courseKeyId == c.getId())
+
+            if(totalCredit > 15)
+            {
+                model.addAttribute("courseList", courseDao.findAll());
+                model.addAttribute("studentKeyId", sutdentkeyId);
+                model.addAttribute("title", sutdentName + " : " + sutdentId);
+                model.addAttribute("errors", "You have already taken 15 credit");
+                totalCredit = 0;
+
+                return "Student/addCourseForStudent";
+            }
+            else if(courseKeyId == c.getId())
             {
                 model.addAttribute("courseList", courseDao.findAll());
                 model.addAttribute("studentKeyId", sutdentkeyId);
                 model.addAttribute("title", sutdentName + " : " + sutdentId);
                 model.addAttribute("errors", "Course is already selected!");
+                totalCredit = 0;
 
                 return "Student/addCourseForStudent";
             }
         }
         studentDetails.addCourse(courseDetails);
         studentDao.save(studentDetails);
+        totalCredit = 0;
 
         return "redirect:/Student/viewCourseForStudent?studentKeyId="+studentKeyId+"";
     }
@@ -174,7 +192,17 @@ public class StudentController {
         sutdentName = student.getName();
         model.addAttribute("List", sortedCouserList);
         model.addAttribute("title", sutdentName + " : " + sutdentId);
+        model.addAttribute("totalCredit", "Total Credit : " + getCredit());
+        totalCredit = 0;
 
         return "Student/viewCourseForStudent";
+    }
+
+    public int getCredit()
+    {
+        for (CourseDetails c: sortedCouserList) {
+            totalCredit += c.getCourseCredit();
+        }
+        return  totalCredit;
     }
 }

@@ -8,9 +8,9 @@
             <nav th:replace="fragments :: navigation"></nav>
         </div>
         <div class="depertmentList">
-            <ul class="deptList">
+            <ol class="deptList">
                 <li th:each="deptList : ${deptList}"><a th:href="@{/Student/asDepertment(deptId=${deptList.Id})}" th:text="${deptList.DeptName}"></a></li>
-            </ul>
+            </ol>
             <a class="btn btn-success" href="/Depertment/addDepertment">Add Department</a>
         </div>
     </div>
