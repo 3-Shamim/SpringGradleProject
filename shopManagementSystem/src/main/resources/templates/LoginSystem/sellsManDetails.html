@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: sellsMan-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="sellsManTable">
+                <form action="" method="post">
+                    <table class="table" th:Object="${userDetails}">
+                        <tr>
+                            <td>Name</td>
+                            <td th:text="*{name}"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td th:text="*{email}"></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td th:text="*{address}"></td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td th:text="*{phoneNumber}"></td>
+                        </tr>
+                    </table>
+                    <button class="customButton clear" type="submit" name="Edit">Edit</button>
+                </form>
+
+                <span class="errors" th:text="${errors}"></span>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

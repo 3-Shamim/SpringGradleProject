@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: admin-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="sellsManTable">
+                <form action="" method="post">
+                    <div class="Filter-SellsProduct">
+                        <div class="selector">
+                            <select class="form-control"  name="sellsMan" >
+                                <option  value = "00220022" > All </option>
+                                <option th:each="list : ${sellsManList}" th:value="${list.id}" th:text="${list.name}"></option>
+                            </select>
+                        </div>
+                        <button class="customButton Show" type="submit" name="Show">Show</button>
+                    </div>
+                    <table class="table">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th><label><input type="checkbox" name="checkbox" id="checkAll"/> Check All </label></th>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr th:each="products : ${product}">
+                                <td><input class="case" type="checkbox" name="selectedProduct" th:value="${products.id}" /></td>
+                                <td th:text="${products.id}"></td>
+                                <td th:text="${products.productName}"></td>
+                                <td th:text="${products.productPrice}"></td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <button class="customButton clear" type="submit" name="Clear">Clear</button>
+
+                </form>
+
+                <span class="errors" th:text="${errors}"></span>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: sellsMan-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="productTable">
+                <form action="" method="post">
+                    <table class="table">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th><label><input type="checkbox" name="checkbox" id="checkAll"/> Check All </label></th>
+                                <th>Id</th>
+                                <th>Product Name</th>
+                                <th>Product Price</th>
+                            </tr>
+                            <tr th:each="list : ${productList}">
+                                <td><input class="case" type="checkbox" name="selectedProduct" th:value="${list.id}" /> </td>
+                                <td th:text="${list.id}"></td>
+                                <td th:text="${list.productName}"></td>
+                                <td th:text="${list.productPrice}"></td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <button class="customButton addToCart" type="submit" name="Add to Cart" >Add to Cart</button>
+
+                </form>
+
+                <span class="errors" th:text="${errors}"> Ok </span>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

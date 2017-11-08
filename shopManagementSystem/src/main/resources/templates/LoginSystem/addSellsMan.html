@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: admin-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="addProductHead">
+                <h4> Add Product </h4>
+            </div>
+            <div class="addProductForm">
+                <form  action="" method="post" th:object="${sellsManDetails}">
+                    <div class="form-group">
+                        <label th:for="name">Name</label>
+                        <input class="form-control" th:field="*{name}" />
+                        <span class="errors" th:errors="*{name}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="password">Password</label>
+                        <input class="form-control" type="password" th:field="*{password}" />
+                        <span class="errors" th:errors="*{password}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="email">Email</label>
+                        <input class="form-control" th:field="*{email}"/>
+                        <span class="errors" th:errors="*{email}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="address">Address</label>
+                        <input class="form-control" th:field="*{address}"/>
+                        <span class="errors" th:errors="*{address}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="phoneNumber">Phone Number</label>
+                        <input class="form-control" th:field="*{phoneNumber}"/>
+                        <span class="errors" th:errors="*{phoneNumber}"></span>
+                    </div>
+
+                    <button class="customButton" type="submit">Add SellsMan</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

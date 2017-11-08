@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: admin-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="sellsManTable">
+                <form action="" method="post">
+                    <table class="table table-sm">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th><label><input type="checkbox" name="checkbox" id="checkAll"/> Check All </label></th>
+                                <th>Name</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Phone Number</th>
+                            </tr>
+                            <tr th:each="list : ${sellsManList}">
+                                <td><input class="case" type="checkbox" name="selectedSellsMan" th:value="${list.id}" /> </td>
+                                <td th:text="${list.name}"></td>
+                                <td th:text="${list.password}"></td>
+                                <td th:text="${list.email}"></td>
+                                <td th:text="${list.address}"></td>
+                                <td th:text="${list.phoneNumber}"></td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <button class="customButton Details" type="submit" name="Edit" >Edit</button>
+                    <button class="customButton delete" type="submit" name="Delete">Delete</button>
+
+                </form>
+
+                <span class="errors" th:text="${errors}"></span>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

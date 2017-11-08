@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: admin-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="addProductHead">
+                <h4> Add Product </h4>
+            </div>
+            <div class="addProductForm">
+                <form  action="" method="post" th:object="${product}">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" name="id" th:value="${updateProductId}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input class="form-control" type="text" name="productName" id="productName" th:value="${updateProductName}"/>
+                        <span class="errors" th:errors="*{productName}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Product Price</label>
+                        <input class="form-control" type="text" name="productPrice" id="productPrice" th:value="${updateProductPrice}"/>
+                        <span class="errors" th:errors="*{productPrice}"></span>
+                    </div>
+
+                    <button class="customButton" type="submit"> Update Product </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments :: header"></div>
+
+    <div class="full-content">
+        <div class="left">
+            <nav th:replace="fragments :: admin-nav"></nav>
+        </div>
+        <div class="right">
+            <div class="productTable">
+                <table class="table">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                        </tr>
+                        <tr th:each="list : ${productList}">
+                            <td th:text="${list.productName}"></td>
+                            <td th:text="${list.productPrice}"></td>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="price">
+                    <table class="table">
+                        <tr>
+                            <th>Details</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td> Total </td>
+                            <td th:text="${totalAmount}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

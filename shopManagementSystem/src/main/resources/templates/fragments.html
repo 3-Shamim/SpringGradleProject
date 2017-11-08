@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Student</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/custom.js}"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div th:fragment="header" class="header">
+        <div class="left">
+            <h1 th:text="${title}"></h1>
+        </div>
+        <div class="right">
+            <a class="customButton" href="/LoginView/Logout"> Log out </a>
+        </div>
+    </div>
+
+    <nav th:fragment="admin-nav" class="main-menu">
+        <ul>
+            <li><a href="/LoginView/LoggedinView"> Product Table </a></li>
+            <li><a href="/LoginView/addProduct"> Add Product </a></li>
+            <li><a href="/LoginView/addSellsMan"> Add Sales Man</a></li>
+            <li><a href="/LoginView/sellsManTable"> SalesMan Table </a></li>
+            <li><a href="/LoginView/sellsTable"> Sales Table </a></li>
+        </ul>
+    </nav>
+    <nav th:fragment="sellsMan-nav" class="main-menu">
+        <ul>
+            <li><a href="/LoginView/LoggedinView"> Product Table </a></li>
+            <li><a href="/LoginView/sellsManSells"> Sells Table </a></li>
+            <li><a href="/LoginView/sellsManDetails"> My Details </a></li>
+        </ul>
+    </nav>
+
+
+</div>
+</body>
+</html>
